@@ -1,0 +1,16 @@
+# .devcontainer/docker-compose.yml
+version: '3.8'
+services:
+  app:
+    # Use the same image you were using
+    image: mcr.microsoft.com/devcontainers/miniconda:1-3
+    
+    # 🚨 CRITICAL STEP: Binds your working WSL folder to the container
+    volumes:
+      - /home/rdelhaye/Py_Projects/CV_as_code:/workspaces/miniconda
+    
+    # Keeps the container running so you can attach to it
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    
+    # Set the working directory inside the container
+    working_dir: /workspaces/Dir
